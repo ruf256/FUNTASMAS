@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Fantasma
+  - LimiteX
+  - LimiteY
+  - FantasmaMalo
+  - Punto
+  - Muerte
+  - PuntoVictoria
+  - LimiteD
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Limite
+  - Water
+  - UI
+  - hidden
+  - esfera
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: esfera
+    uniqueID: 1178888193
+    locked: 0
