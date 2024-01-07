@@ -32,7 +32,7 @@ public class CameraChallengeScript : MonoBehaviour
     void Update()
     {
         if (!StateManager.Instance.isJugando())
-        {
+        { 
             return;
         }
             
@@ -41,24 +41,20 @@ public class CameraChallengeScript : MonoBehaviour
         if(Vector3.Distance(transform.position, cameraWayPoints[currentWaypoint].position) == 0)
         {
             
-            if (currentWaypoint == cameraWayPoints.Count - 1)
-            {
-
-            }
-            else
+            if (currentWaypoint != cameraWayPoints.Count - 1)
             {
                 if (cameraWayPoints[currentWaypoint].localScale.x >= 1)
                 {
-                    StartCoroutine("ZoomCamara", cameraWayPoints[currentWaypoint].localScale.x + 5);
+                    StartCoroutine(ZoomCamara(cameraWayPoints[currentWaypoint].localScale.x + 5));
                 }
                 else if (cameraWayPoints[currentWaypoint].localScale.x < 1 && Camera.main.orthographicSize != 5)
                 {
-                    StartCoroutine("ZoomCamara", 5);
+                    StartCoroutine(ZoomCamara(5));
                 }
 
                 if (cameraWayPoints[currentWaypoint].localScale.y != 0)
                 {
-                    StartCoroutine("CambiarVelocidadCamara", cameraWayPoints[currentWaypoint].localScale.y );
+                    StartCoroutine(CambiarVelocidadCamara(cameraWayPoints[currentWaypoint].localScale.y));
                 }
 
                 currentWaypoint++;
