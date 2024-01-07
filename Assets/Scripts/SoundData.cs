@@ -33,6 +33,7 @@ public class SoundData : MonoBehaviour
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
+        if(this != null)
         StartCoroutine(encontrarEndlessMusica());
     }
 

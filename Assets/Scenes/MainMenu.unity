@@ -4067,6 +4067,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.019607844
       objectReference: {fileID: 0}
+    - target: {fileID: 1508689211557663561, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3012498907895077913, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
       propertyPath: m_Name
       value: MobileUI
@@ -4075,9 +4079,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3957940130912962820, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4767266512857595756, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
       propertyPath: m_LocalPosition.z
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973228924230491438, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5302498447128011752, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
       propertyPath: m_Pivot.x
@@ -4158,10 +4170,6 @@ PrefabInstance:
     - target: {fileID: 5302498447128011752, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7703077513024822138, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8021577440790010423, guid: 00e789beadba2a04580596d75b3e47bf, type: 3}
       propertyPath: m_Sprite

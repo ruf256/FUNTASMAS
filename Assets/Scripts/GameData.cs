@@ -21,7 +21,7 @@ public class GameData : MonoBehaviour
         }
 
         if (!PlayerPrefs.HasKey("Desbloqueables")) SaveDesbloqueables(0);
-        if (!PlayerPrefs.HasKey("EndlessHighScore")) SaveHighScore(25);
+        if (!PlayerPrefs.HasKey("EndlessHighScore")) SaveHighScore(0);
         if (!PlayerPrefs.HasKey("ChallengeCompletado")) SaveChallengeCompletado(0);
         if (!PlayerPrefs.HasKey("MasterVolumen")) PlayerPrefs.SetFloat("MasterVolumen", -9f);
 
@@ -36,8 +36,7 @@ public class GameData : MonoBehaviour
 
     public void SaveHighScore(int score)
     {
-        int endlessHighScore = score;
-        PlayerPrefs.SetInt("EndlessHighScore", endlessHighScore);
+        PlayerPrefs.SetInt("EndlessHighScore", score);
     }
 
     public int LoadHighScore()

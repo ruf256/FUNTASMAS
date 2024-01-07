@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MobileUI : MonoBehaviour
 {
     [SerializeField] Image[] botones;
-    void Start()
+
+
+    void Update()
     {
+        if (SceneManager.GetActiveScene().buildIndex != 0) return; 
         if (GameData.gameData.LoadModoVisual() == 0)
         {
             foreach (Image item in botones) 
@@ -25,9 +29,4 @@ public class MobileUI : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
