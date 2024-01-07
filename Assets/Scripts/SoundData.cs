@@ -33,10 +33,7 @@ public class SoundData : MonoBehaviour
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        if (SceneManager.GetActiveScene().name.StartsWith("E") || SceneManager.GetActiveScene().name.StartsWith("O"))
-        {
-            musicaAudio = GameObject.Find("EndlessMusica").GetComponent<AudioSource>();
-        }
+        StartCoroutine(encontrarEndlessMusica());
     }
 
     public void ChangeMasterVolumen()
@@ -86,7 +83,7 @@ public class SoundData : MonoBehaviour
             {
                 b -= a * Time.deltaTime * 10;
                 masterMixer.SetFloat("MasterVolumen", b);
-                if(!musicaAudio.isPlaying)
+                if(!musicaAudio.isPlaying && musicaAudio != null)
                 {
                     musicaAudio.UnPause();
                 }
@@ -105,6 +102,17 @@ public class SoundData : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    IEnumerator encontrarEndlessMusica()
+    {
+        float a = 0;
+        while(a < 3f)
+        {
+            musicaAudio = GameObject.Find("EndlessMusica").GetComponent<AudioSource>();
+            a += Time.deltaTime;
+            yield return null;
+        }
     }
 
 }

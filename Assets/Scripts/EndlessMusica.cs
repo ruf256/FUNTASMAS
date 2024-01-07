@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class EndlessMusica : MonoBehaviour
 {
     [HideInInspector] public static EndlessMusica eM { private set; get; }
-    PlayerColissionScript jugador;
+
+
     private void Awake()
     {
         if (eM == null)

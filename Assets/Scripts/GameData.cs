@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameData : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class GameData : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 60;
+
 
         if (gameData == null)
         {
@@ -19,18 +21,16 @@ public class GameData : MonoBehaviour
         }
 
         if (!PlayerPrefs.HasKey("Desbloqueables")) SaveDesbloqueables(0);
-        if (!PlayerPrefs.HasKey("EndlessHighScore")) SaveHighScore(0);
+        if (!PlayerPrefs.HasKey("EndlessHighScore")) SaveHighScore(25);
         if (!PlayerPrefs.HasKey("ChallengeCompletado")) SaveChallengeCompletado(0);
         if (!PlayerPrefs.HasKey("MasterVolumen")) PlayerPrefs.SetFloat("MasterVolumen", -9f);
 
     }
 
-
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F))
         Screen.fullScreen = !Screen.fullScreen;
-
     }
 
 
@@ -67,14 +67,20 @@ public class GameData : MonoBehaviour
         return PlayerPrefs.GetInt("Desbloqueables");
     }
 
-    public void SaveNivelChallengeGrade(string chg, char a)
+    public void SaveNivelChallengeGrade(string chg, char a, int valorGrado)
     {
         PlayerPrefs.SetString(chg, a.ToString());
+        PlayerPrefs.SetInt(chg + "V", valorGrado);
     }
 
     public string LoadChallengeGrade(string chg)
     {
         return PlayerPrefs.GetString(chg);
+    }
+
+    public int LoadChallengeGradeValor(string chg)
+    {
+        return PlayerPrefs.GetInt(chg + "V");
     }
 
     public void SaveChallengeCompletado(int b)

@@ -39,12 +39,13 @@ public class Flechas : MonoBehaviour
 
     private Vector3 initScaleCandado;
 
-    Volume vol;
+    [SerializeField] Volume vol;
 
     private string escenaIzq;
     private string escenaDer;
     private void Awake()
     {
+        if(vol == null)
         vol = FindAnyObjectByType<VolumeScript>().GetComponent<Volume>();
         Image[] fills = GetComponentsInChildren<Image>();
 

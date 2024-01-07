@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public int movimientos { private set; get; }
     public int puntaje { private set; get; }
     public char grado { private set; get; }
+    int valorGrado;
 
     public int puntajeMaximo { private set; get; }
 
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         PlayerEventScript.Instance.Moviose += Instance_Moviose;
         PlayerEventScript.Instance.LevelComplete += Instance_LevelComplete;
         endlessP = Loader.GetScene().StartsWith("End");
-        movJugador = GameObject.Find("MovimientoJugador");
+        movJugador = FindAnyObjectByType<PlayerMovement>().gameObject;
         if(!endlessP)
         puntoVictoria = GameObject.FindGameObjectWithTag("PuntoVictoria").transform;
 
@@ -48,8 +49,11 @@ public class GameManager : MonoBehaviour
 
     private void Instance_LevelComplete(object sender, System.EventArgs e)
     {
-        if(GameData.gameData != null)
-        GameData.gameData.SaveNivelChallengeGrade(SceneManager.GetActiveScene().name,grado);
+        if(GameData.gameData != null && GameData.gameData.LoadChallengeGradeValor(SceneManager.GetActiveScene().name) < valorGrado)
+        {
+            GameData.gameData.SaveNivelChallengeGrade(SceneManager.GetActiveScene().name, grado, valorGrado);
+        }
+        
     }
 
     private void Instance_Moviose(object sender, System.EventArgs e)
@@ -69,26 +73,32 @@ public class GameManager : MonoBehaviour
         if (puntaje == puntajeMaximo && movimientos <= movimientosMaximos)
         {
             grado = 'S';
+            valorGrado = 10;
         }
         else if (puntaje > Mathf.CeilToInt(puntajeMaximo / 2) && movimientos <= movimientosMaximos)
         {
             grado = 'A';
+            valorGrado = 9;
         }
         else if (puntaje > Mathf.CeilToInt(puntajeMaximo / 2) && movimientos > movimientosMaximos)
         {
             grado = 'B';
+            valorGrado = 7;
         }
         else if (puntaje > Mathf.CeilToInt(puntajeMaximo / 3) && movimientos <= movimientosMaximos)
         {
             grado = 'B';
+            valorGrado = 7;
         }
         else if (puntaje < Mathf.FloorToInt(puntajeMaximo / 3) && movimientos > movimientosMaximos)
         {
             grado = 'C';
+            valorGrado = 3;
         }
-        else if (puntaje == 1 && movimientos > movimientosMaximos)
+        else
         {
             grado = 'F';
+            valorGrado = 1;
         }
 
         if (GameData.gameData != null && GameData.gameData.LoadHighScore() < puntaje)
