@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float velocidadRotacion;
 
     [SerializeField] private float velocidad;
-    public float velocidadInicial;
+    [HideInInspector] public float velocidadInicial;
     [SerializeField] private float limiteVelocidad = 210;
 
     private float tiempoAceleracion = 2;

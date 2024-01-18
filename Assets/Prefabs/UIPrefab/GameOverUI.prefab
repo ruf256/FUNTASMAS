@@ -654,10 +654,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flechas
       objectReference: {fileID: 0}
-    - target: {fileID: 2581707194513787075, guid: 94db8bdd3757a554694b28d5512ee8fb, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5242599369121188257, guid: 94db8bdd3757a554694b28d5512ee8fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

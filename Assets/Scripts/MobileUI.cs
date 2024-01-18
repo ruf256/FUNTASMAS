@@ -7,16 +7,44 @@ using UnityEngine.UI;
 public class MobileUI : MonoBehaviour
 {
     [SerializeField] Image[] botones;
-
-
-    void Update()
+    private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0) return; 
+        if (PlayerEventScript.Instance != null)
+        {
+            PlayerEventScript.Instance.GameOver += Instance_GameOver;
+            PlayerEventScript.Instance.LevelComplete += Instance_LevelComplete;
+
+            foreach (Image item in botones)
+            {
+                item.color = new Color(0, 0, 0, 0f);
+            }
+        }
+        else
+        {
+            if (GameData.gameData.LoadModoVisual() == 0)
+            {
+                foreach (Image item in botones)
+                {
+                    item.color = new Color(0, 0, 0, 0.5f);
+                }
+            }
+            else
+            {
+                foreach (Image item in botones)
+                {
+                    item.color = new Color(0, 0, 0, 0.05f);
+                }
+            }
+        }
+    }
+
+    private void Instance_LevelComplete(object sender, System.EventArgs e)
+    {
         if (GameData.gameData.LoadModoVisual() == 0)
         {
-            foreach (Image item in botones) 
-            { 
-                item.color = new Color(0,0,0,0.5f);
+            foreach (Image item in botones)
+            {
+                item.color = new Color(0, 0, 0, 0.5f);
             }
         }
         else
@@ -26,7 +54,25 @@ public class MobileUI : MonoBehaviour
                 item.color = new Color(0, 0, 0, 0.05f);
             }
         }
+    }
 
+    private void Instance_GameOver(object sender, System.EventArgs e)
+    {
+        if (GameData.gameData.LoadModoVisual() == 0)
+        {
+            foreach (Image item in botones)
+            {
+                item.color = new Color(0, 0, 0, 0.5f);
+            }
+        }
+        else
+        {
+            foreach (Image item in botones)
+            {
+                item.color = new Color(0, 0, 0, 0.05f);
+            }
+        }
+        
     }
 
 }
