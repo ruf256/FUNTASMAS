@@ -26,7 +26,7 @@ public class PlayerColissionScript : MonoBehaviour
             case "FantasmaMalo":
                 if (collision.GetComponent<SpriteRenderer>().color.a >= 1 && StateManager.Instance.isJugando())
                 {
-                    playerEventScript.SendMessage("GameOverEvent");
+                    playerEventScript.GameOverEvent();
                 }
                 break;
             case "LimiteX":
@@ -36,17 +36,17 @@ public class PlayerColissionScript : MonoBehaviour
                 TPy(collision.transform);
                 break;
             case "Punto":
-                playerEventScript?.SendMessage("SumarPuntoEvent");
+                playerEventScript.SumarPuntoEvent();
                 puntoEffect.InstanciarEfecto(collision.transform.position);
                 Destroy(collision.gameObject);
                 break;
             case "Muerte":
-                playerEventScript.SendMessage("GameOverEvent");
+                playerEventScript.GameOverEvent();
                 break;
             case "PuntoVictoria":
                 puntoEffect.InstanciarEfecto(collision.transform.position);
-                playerEventScript?.SendMessage("SumarPuntoEvent");
-                playerEventScript.SendMessage("LevelCompleteEvent");
+                playerEventScript?.SendMessageSumarPuntoEvent();
+                playerEventScript.SendMessageLevelCompleteEvent();
                 Destroy(collision.gameObject);
                 break;
         }
@@ -59,7 +59,7 @@ public class PlayerColissionScript : MonoBehaviour
             case "FantasmaMalo":
                 if (collision.GetComponent<SpriteRenderer>().color.a >= 1 && StateManager.Instance.isJugando())
                 {
-                    playerEventScript.SendMessage("GameOverEvent");
+                    playerEventScript.SendMessageGameOverEvent();
                 }
                 break;
         }
